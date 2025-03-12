@@ -8,6 +8,7 @@ import { Question, QuestionType } from "./interfaces/question";
 export function makeBlankQuestion(
     id: number,
     name: string,
+<<<<<<< HEAD
     type: QuestionType,
 ): Question {
     return {
@@ -20,6 +21,11 @@ export function makeBlankQuestion(
         points: 1,
         published: false,
     };
+=======
+    type: QuestionType
+): Question {
+    return {};
+>>>>>>> origin/task-components
 }
 
 /**
@@ -30,12 +36,16 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
+<<<<<<< HEAD
     return (
             question.expected.trim().toLowerCase() ===
                 answer.trim().toLowerCase()
         ) ?
             true
         :   false;
+=======
+    return false;
+>>>>>>> origin/task-components
 }
 
 /**
@@ -45,12 +55,18 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
+<<<<<<< HEAD
     return (
         question.type === "short_answer_question" ||
         question.options.some((option) => option === answer)
     );
 }
 //filtered.length != 0 && question.options.length > 1 ? true : false;
+=======
+    return false;
+}
+
+>>>>>>> origin/task-components
 /**
  * Consumes a question and produces a string representation combining the
  * `id` and first 10 characters of the `name`. The two strings should be
@@ -58,9 +74,13 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
+<<<<<<< HEAD
     return (
         question.id.toString() + ": " + question.name.slice(0, 10).toString()
     );
+=======
+    return "";
+>>>>>>> origin/task-components
 }
 
 /**
@@ -81,10 +101,14 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
+<<<<<<< HEAD
     const optionsList = question.options
         .map((word) => "\n" + "- " + word)
         .join("");
     return "# " + question.name + "\n" + question.body + optionsList;
+=======
+    return "";
+>>>>>>> origin/task-components
 }
 
 /**
@@ -92,18 +116,28 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
+<<<<<<< HEAD
     return { ...question, name: newName };
 }
+=======
+    return question;
+}
+
+>>>>>>> origin/task-components
 /**
  * Return a new version of the given question, except the `published` field
  * should be inverted. If the question was not published, now it should be
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
+<<<<<<< HEAD
     const value: boolean = question.published;
     return value ?
             { ...question, published: false }
         :   { ...question, published: true };
+=======
+    return question;
+>>>>>>> origin/task-components
 }
 
 /**
@@ -113,6 +147,7 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
+<<<<<<< HEAD
     const value: string = oldQuestion.name;
     return {
         ...oldQuestion,
@@ -120,6 +155,9 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
         published: false,
         id: id,
     };
+=======
+    return oldQuestion;
+>>>>>>> origin/task-components
 }
 
 /**
@@ -130,8 +168,14 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
+<<<<<<< HEAD
     return { ...question, options: [...question.options, newOption] };
 }
+=======
+    return question;
+}
+
+>>>>>>> origin/task-components
 /**
  * Consumes an id, name, and two questions, and produces a new question.
  * The new question will use the `body`, `type`, `options`, and `expected` of the
@@ -144,6 +188,7 @@ export function mergeQuestion(
     id: number,
     name: string,
     contentQuestion: Question,
+<<<<<<< HEAD
     { points }: { points: number },
 ): Question {
     return {
@@ -153,4 +198,9 @@ export function mergeQuestion(
         points: points,
         published: false,
     };
+=======
+    { points }: { points: number }
+): Question {
+    return contentQuestion;
+>>>>>>> origin/task-components
 }
